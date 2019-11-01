@@ -1,0 +1,11 @@
+[package]
+name = "rustzilla"
+version = "0.1.0"
+authors = ["ajwinter <awintersieck@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = "0.9.22"
+scraper = "0.11.0"
