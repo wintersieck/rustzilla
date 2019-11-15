@@ -4,6 +4,7 @@ use scraper::{Html, Selector};
 use chrono::{Timelike, Local, DateTime, Duration};
 use clap::{Arg, App};
 
+// Roomzilla doesn't give us an end time or duration, so we have to infer it by the width of the reservation element
 // 58px = 1 hour
 // 60 / 58 = 1.03448275862 (minutes per px)
 // 60 / 58 * 60 = 62.0689655172 (seconds per px)
@@ -96,7 +97,7 @@ fn print_free_rooms(rooms: HashMap<String, Room>, start: DateTime<Local>, end: D
     }
 }
 
-fn main() -> Result<(), reqwest::Error> {
+fn main() {
     let cli_args = App::new("Rustzilla")
                           .version("1.0")
                           .author("Allan Wintersieck <awintersieck@gmail.com>")
@@ -130,6 +131,4 @@ fn main() -> Result<(), reqwest::Error> {
     };
 
     print_free_rooms(rooms, start, end);
-
-    Ok(())
 }
